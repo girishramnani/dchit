@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Tabs, Tab, Navbar } from 'react-bootstrap';
-
+import { BrowserRouter, Route} from 'react-router-dom'
 import EmbarkJS from 'Embark/EmbarkJS';
 import DNavbar from './components/navbar';
+import ChistList from './components/chits_list';
+import Home from './components/home';
 
 
 
 
 
 import './dapp.css';
+import ChitsList from './components/chits_list';
 
 class App extends React.Component {
 
@@ -52,8 +55,17 @@ class App extends React.Component {
   render(){
     return (<div>
      <DNavbar />
+
+     <div className="container pages">
+      <Route exact path="/" component={Home}/>
+      <Route path="/chits" component={ChitsList}/>
+     </div>
     </div>);
   }
 }
 
-ReactDOM.render(<App></App>, document.getElementById('app'));
+ReactDOM.render(
+ <BrowserRouter>
+ <App/>
+</BrowserRouter>
+, document.getElementById('app'));

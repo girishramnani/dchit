@@ -10,5 +10,17 @@
         "address": "0xb390dE7d6c19163EE5014Ff87e145D9E22Ed3194"
       }
     }
+  },
+  "0x8781a9b8c2a31e5dff5c62fddfd92768d401db14ddc5b069e3c41d72f1712e4a": {
+    "contracts": {
+      "0x29547c723af666c296bf0563bcd1bf0c5260bff8f7597f00dc1716ffe0743229": {
+        "name": "Chit",
+        "address": "0xd8a512EBD6fd82f44dFFD968EEB0835265497d20"
+      },
+      "0x91404aa678fdebfb3065e48a0142b32dd8c0c488928c199d974691669f27eab1": {
+        "name": "SafeMath",
+        "address": "0x10Aa1c9C2ad79b240Dc612cd2c0c0f5513bAfF28"
+      }
+    }
   }
 }

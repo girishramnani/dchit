@@ -10,7 +10,7 @@ module.exports = {
     nodiscover: true, // Disables the peer discovery mechanism (manual peer addition)
     maxpeers: 0, // Maximum number of network peers (network disabled if set to 0) (default: 25)
     rpcHost: "localhost", // HTTP-RPC server listening interface (default: "localhost")
-    rpcPort: 8545, // HTTP-RPC server listening port (default: 8545)
+    rpcPort: 8565, // HTTP-RPC server listening port (default: 8565)
     rpcCorsDomain: "auto",  // Comma separated list of domains from which to accept cross origin requests (browser enforced)
                             // When set to "auto", Embark will automatically set the cors to the address of the webserver
     proxy: true, // Proxy is used to present meaningful information about transactions
@@ -32,7 +32,7 @@ module.exports = {
     networkType: "testnet",
     syncMode: "light",
     rpcHost: "localhost",
-    rpcPort: 8545,
+    rpcPort: 8565,
     rpcCorsDomain: "http://localhost:8000",
     account: {
       password: "config/testnet/password"
@@ -43,7 +43,7 @@ module.exports = {
     networkType: "livenet",
     syncMode: "light",
     rpcHost: "localhost",
-    rpcPort: 8545,
+    rpcPort: 8565,
     rpcCorsDomain: "http://localhost:8000",
     account: {
       password: "config/livenet/password"
@@ -53,7 +53,7 @@ module.exports = {
     enabled: true,
     networkType: "custom",
     rpcHost: "localhost",
-    rpcPort: 8545,
+    rpcPort: 8565,
     rpcCorsDomain: "http://localhost:8000",
     datadir: "yourdatadir",
     networkId: "123",
