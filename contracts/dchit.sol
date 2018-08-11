@@ -95,12 +95,14 @@ contract Chit {
     // the number of participants
     uint internal participant_count;
     mapping(address => Member) internal pool;
+    address[] participants;
 
     
     bool internal is_active;
     bool internal is_closed;
 
     // important dates
+    uint internal duration = 30 days;
     uint internal creation_date;
     uint internal start_date;
     uint internal close_date;
@@ -112,26 +114,38 @@ contract Chit {
 
     // modifiers
 
-    modifier isTopLevel() {
+    modifier onlyTopLevel() {
         require(msg.sender == fund_manager.addr || msg.sender == deployer, "The sender of the transaction does not have enough escalation");
+        _;
+    }
+
+    modifier onlyActive() {
+        require(is_active == true && is_closed == false, "The chit is not active");
         _;
     }
 
   // event ChitCreated(address indexed manager_address, uint256 date);
 
 
-    constructor(address _manager_address, uint256 _chit_value, uint256 _fee_per_cent) public {
+    constructor(address _manager_address, uint256 _chit_value, uint256 _fee_per_cent, uint _participant_count) public {
         fund_manager.fee = _fee_per_cent;
         fund_manager.addr = _manager_address;
         chit_value = _chit_value;
+        participant_count = _participant_count;
         creation_date = now;
     }
 
     function () public payable {
       // if the sender is not in the chit fund
-        if (!is_member(msg.sender)) {
-            msg.sender.transfer(msg.value);
-        }
+        require(is_member(msg.sender), "The sender is not a member");
+
+    }
+
+    function start_chit_fund() public onlyTopLevel {
+        require(participants.length == participant_count, "The participant count is not complete yet");
+        start_date = now;
+        close_date = start_date + (participant_count * duration);
+
     }
 
     function get_uni() public view returns (address) {
