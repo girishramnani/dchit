@@ -1,53 +1,16 @@
-
-div {
-  margin: 15px;
+.top-level {
+  width: 100%;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
-.logs {
-  background-color: black;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 8px;
+.navbar {
+  background: #363763 !important;
+  border-radius: 0px !important;
 }
 
-.tab-content {
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-  margin: 0px;
-}
-
-.nav-tabs {
-  margin-bottom: 0;
-}
-
-.status-offline {
-  vertical-align: middle;
-  margin-left: 5px;
-  margin-top: 4px;
-  width: 12px;
-  height: 12px;
-  background: red;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.status-online {
-  vertical-align: middle;
-  margin-left: 5px;
-  margin-top: 4px;
-  width: 12px;
-  height: 12px;
-  background: mediumseagreen;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-
-input.form-control {
-  margin-right: 5px;
+* {
+  font-family: 'Nunito Sans', sans-serif;    
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
 }
