@@ -4,15 +4,12 @@ import { Tabs, Tab, Navbar } from 'react-bootstrap';
 import { BrowserRouter, Route} from 'react-router-dom'
 import EmbarkJS from 'Embark/EmbarkJS';
 import DNavbar from './components/navbar';
-import ChistList from './components/chits_list';
+import ChitsList from './components/chits_list';
 import Home from './components/home';
 
 
 
-
-
 import './dapp.css';
-import ChitsList from './components/chits_list';
 
 class App extends React.Component {
 
