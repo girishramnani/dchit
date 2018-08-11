@@ -32,10 +32,11 @@ module.exports = {
     ],
     gas: "auto",
     contracts: {
-      SimpleStorage: {
+      Chit: {
         fromIndex: 0,
-        args: [100]
-      }
+        args: ["0x225220ea751cf5756385ff6d7385eaa448d5d7a3",50*10e10, 5]
+      },
+
     }
   }
 };

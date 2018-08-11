@@ -1,9 +1,13 @@
 {
   "0x5394e5a22b2c1ef17ee09e241eb54b861872e31d88250c041fb009938eb190fd": {
     "contracts": {
-      "0xa72e15b4fc637528e678fdcab66f178b753f609a6d2a66564f1676fde4d51ed3": {
-        "name": "SimpleStorage",
-        "address": "0xEaDE24B66894Eb1162dbfb669b9e81a1a85b598b"
+      "0x99b137bb0dff77850c59ab13feeddde167ae74af1f0ed9a6700c77344522f77b": {
+        "name": "Chit",
+        "address": "0x4cfC1c4Fe8eD24f09159E2C53a345022A6b833c9"
+      },
+      "0x91404aa678fdebfb3065e48a0142b32dd8c0c488928c199d974691669f27eab1": {
+        "name": "SafeMath",
+        "address": "0xb390dE7d6c19163EE5014Ff87e145D9E22Ed3194"
       }
     }
   }

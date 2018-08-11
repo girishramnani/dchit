@@ -81,12 +81,12 @@ contract Chit {
     }
 
     struct Member {
-      address addr;
-      // this is the mapping of timestamp => gwei recieved by the members;
-      mapping(uint => uint256) funds_received;
+        address addr;
+        // this is the mapping of timestamp => gwei recieved by the members;
+        mapping(uint => uint256) funds_received;
 
-      // date joined the pool
-      uint date_joined;
+        // date joined the pool
+        uint date_joined;
     }
 
     Manager internal fund_manager;
@@ -113,7 +113,7 @@ contract Chit {
     // modifiers
 
     modifier isTopLevel() {
-        require(msg.sender == fund_manager || msg.sender == deployer);
+        require(msg.sender == fund_manager.addr || msg.sender == deployer, "The sender of the transaction does not have enough escalation");
         _;
     }
 
@@ -127,17 +127,27 @@ contract Chit {
         creation_date = now;
     }
 
+    function () public payable {
+      // if the sender is not in the chit fund
+        if (!is_member(msg.sender)) {
+            msg.sender.transfer(msg.value);
+        }
+    }
+
     function get_uni() public view returns (address) {
         return uni;
     }
 
     function get_fund_manager_address() public view returns (address) {
-
+        return fund_manager.addr;
     }
     
-    function is_member(address _addr) public returns (bool) {
+    function is_member(address _addr) public view returns (bool) {
         return (pool[_addr].date_joined != 0);
     }
+
+    // function add_member(address _)
+
 
 
 
