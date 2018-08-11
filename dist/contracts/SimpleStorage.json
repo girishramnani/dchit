@@ -38,8 +38,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x2a1afcd9"
+      "type": "function"
     },
     {
       "constant": false,
@@ -53,8 +52,7 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function",
-      "signature": "0x60fe47b1"
+      "type": "function"
     },
     {
       "constant": true,
@@ -68,8 +66,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x6d4ce63c"
+      "type": "function"
     },
     {
       "inputs": [
@@ -80,13 +77,11 @@
       ],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor",
-      "signature": "constructor"
+      "type": "constructor"
     }
   ],
   "filename": "simple_storage.sol",
-  "gas": 134157,
-  "gasPrice": null,
+  "gas": "auto",
   "type": "file",
   "deploy": true,
   "_gasLimit": false,
@@ -94,6 +89,5 @@
   "realArgs": [
     100
   ],
-  "deployedAddress": "0xEaDE24B66894Eb1162dbfb669b9e81a1a85b598b",
-  "transactionHash": "0xa9cd8996b51d23bb6ffdeb6d30baf3b6d7486ae684f8eee93e8474d4bb252b21"
+  "deployedAddress": "0xEaDE24B66894Eb1162dbfb669b9e81a1a85b598b"
 }
