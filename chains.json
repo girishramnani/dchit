@@ -38,5 +38,17 @@
         "address": "0xAACD4A4624632CbA84adCEda845dE2c1c265f832"
       }
     }
+  },
+  "0x17e07998bec2257b4f7daa92565285bb6638a0f6dca988c4f749c1a68a73e599": {
+    "contracts": {
+      "0xb5e0fdd3c93ec4e9866e34625a7e57e16a705a68a9c98912013695fd3dd27ccd": {
+        "name": "Chit",
+        "address": "0x839939311f48d3647338c70db9C28b2BbEe01d9c"
+      },
+      "0xb1423c10645ac974ffff0c9dc1a4df2fd508d05f5feb298870a78b327583d2f3": {
+        "name": "SafeMath",
+        "address": "0x5d5fE2BbEDcba1f5451531a98964cAd209e16366"
+      }
+    }
   }
 }
