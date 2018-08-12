@@ -43,7 +43,7 @@
     "contracts": {
       "0xb5e0fdd3c93ec4e9866e34625a7e57e16a705a68a9c98912013695fd3dd27ccd": {
         "name": "Chit",
-        "address": "0x839939311f48d3647338c70db9C28b2BbEe01d9c"
+        "address": "0x167B80a008852ff1f82cF1156f1890D9B7f2f6d2"
       },
       "0xb1423c10645ac974ffff0c9dc1a4df2fd508d05f5feb298870a78b327583d2f3": {
         "name": "SafeMath",

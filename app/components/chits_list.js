@@ -1,7 +1,7 @@
 import React from 'react';
 import ChitsRow from './ChitRow';
 import {Button, ButtonToolbar,Input,Modal} from 'react-bootstrap';
-
+import { LinkContainer } from 'react-router-bootstrap';
 export default class ChitsList extends React.Component {
     constructor(props, context) {
       super(props, context);
@@ -151,7 +151,9 @@ export default class ChitsList extends React.Component {
             <tbody>
               <tr>
                 <td>  
-                  <div className="tbl-cap-title">Bitcoin Cash</div>
+                 <LinkContainer to="/chitdetails/2">
+                    <div className="tbl-cap-title">Bitcoin Cash</div>
+                 </LinkContainer>
                  </td>
                 <td>
                   <div className="tbl-change">
