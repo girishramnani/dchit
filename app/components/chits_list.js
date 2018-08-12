@@ -71,45 +71,54 @@ export default class ChitsList extends React.Component {
             </Modal.Header>
             <Modal.Body>
                     <form>
-                <div className="form-contr">      
+                <div className="form-group">
                 <label>
               Name of chitfund
+                </label>
+                <br />
                 <input
                     name="isGoing"
                     type="text"
                      />
-                </label>
-                <br />
+                </div>
+                <div className="input-group input-group-lg">
                 <label>
                 Number of guests:
-                <select
+               </label>
+               <br />
+               <select
                     name="numberOfmember"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
                 >
                 <option></option>
-                </select> 
-               </label>
+                </select>
+               </div>
                 <br />
+                <div className="input-group input-group-lg">
                 <label>
                 Amount per member:
+                </label>
+                <br />
                 <input
                     name="numberOfmember"
                     type="number"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
                  />
-                </label>
+                </div>
                 <br />
+                <div className="input-group input-group-lg">
                 <label>
                 Amount per member:
+                </label>
+                <br />
                 <input
                     name="numberOfmember"
                     type="number"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
                  />
-                </label>
                 </div>
             </form> 
             </Modal.Body>
@@ -125,7 +134,7 @@ export default class ChitsList extends React.Component {
               <Button onClick={this.handleShow} style={style.buttonTable} bsStyle="primary">Create </Button>
             </div>
          </div>  
-        <div className="table-responsive">
+        <div className="table table-responsive form-class">
           <table className="table coin-list-table">
             <thead>
               <tr>
