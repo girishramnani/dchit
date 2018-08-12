@@ -1,8 +1,8 @@
 import React from 'react';
 import ChitsRow from './ChitRow';
 import {Button, ButtonToolbar,Input,Modal} from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-export default class ChitsList extends React.Component {
+
+export default class MyChitsList extends React.Component {
     constructor(props, context) {
       super(props, context);
 
@@ -63,75 +63,9 @@ export default class ChitsList extends React.Component {
 
         return (
         <div className="coin-list">
-         <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header style={style.modelHeder}  closeButton>
-              <Modal.Title style={style.textModel}>
-                    Create  new ChitFund
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                    <form>
-                <div className="form-group">
-                <label>
-              Name of chitfund
-                </label>
-                <br />
-                <input
-                    name="isGoing"
-                    type="text"
-                     />
-                </div>
-                <div className="input-group input-group-lg">
-                <label>
-                Number of guests:
-               </label>
-               <br />
-               <select
-                    name="numberOfmember"
-                    value={this.state.numberOfGuests}
-                    onChange={this.handleInputChange}
-                >
-                <option></option>
-                </select>
-               </div>
-                <br />
-                <div className="input-group input-group-lg">
-                <label>
-                Amount per member:
-                </label>
-                <br />
-                <input
-                    name="numberOfmember"
-                    type="number"
-                    value={this.state.numberOfGuests}
-                    onChange={this.handleInputChange}
-                 />
-                </div>
-                <br />
-                <div className="input-group input-group-lg">
-                <label>
-                Amount per member:
-                </label>
-                <br />
-                <input
-                    name="numberOfmember"
-                    type="number"
-                    value={this.state.numberOfGuests}
-                    onChange={this.handleInputChange}
-                 />
-                </div>
-            </form> 
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.handleClose}>Close</Button>
-            </Modal.Footer>
-          </Modal>
          <div className="row">
             <div className="col-xs-12 col-md-4">
-              <h2 className="section-title">ChitFund List</h2>
-            </div>
-            <div className="pull-right">
-              <Button onClick={this.handleShow} style={style.buttonTable} bsStyle="primary">Create </Button>
+              <h2 className="section-title">My ChitFund Lists</h2>
             </div>
          </div>  
         <div className="table table-responsive form-class">
@@ -151,9 +85,7 @@ export default class ChitsList extends React.Component {
             <tbody>
               <tr>
                 <td>  
-                 <LinkContainer to="/chitdetails/2">
-                    <div className="tbl-cap-title">Bitcoin Cash</div>
-                 </LinkContainer>
+                  <div className="tbl-cap-title">Bitcoin Cash</div>
                  </td>
                 <td>
                   <div className="tbl-change">
@@ -175,8 +107,6 @@ export default class ChitsList extends React.Component {
                 <td>
                   <div className="tbl-mcap">
                   <div style={style.buttonGroup}>
-
-                      <Button style={style.buttonTable} bsStyle="primary">Join</Button>
                       <Button style={style.buttonTable} bsStyle="primary">View</Button>
                   </div>
   

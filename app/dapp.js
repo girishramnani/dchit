@@ -5,6 +5,10 @@ import { BrowserRouter, Route} from 'react-router-dom'
 import EmbarkJS from 'Embark/EmbarkJS';
 import DNavbar from './components/navbar';
 import ChitsList from './components/chits_list';
+import ChitDetails from './components/ChitDetails';
+import MyChitsList from './components/my_chits_list';
+import MyProfile from './components/profile';
+import Organizer from './components/organizer';
 import Home from './components/home';
 
 
@@ -56,6 +60,10 @@ class App extends React.Component {
      <div className="container pages">
       <Route exact path="/" component={Home}/>
       <Route path="/chits" component={ChitsList}/>
+      <Route path="/chitdetails/:usercode" component={ChitDetails}/>
+      <Route path="/my-chits" component={MyChitsList}/>
+      <Route path="/profile" component={MyProfile}/>
+      <Route path="/organizer" component={Organizer}/>
      </div>
     </div>);
   }
