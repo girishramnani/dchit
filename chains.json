@@ -1,9 +1,41 @@
 {
   "0x5394e5a22b2c1ef17ee09e241eb54b861872e31d88250c041fb009938eb190fd": {
     "contracts": {
-      "0xa72e15b4fc637528e678fdcab66f178b753f609a6d2a66564f1676fde4d51ed3": {
-        "name": "SimpleStorage",
-        "address": "0xEaDE24B66894Eb1162dbfb669b9e81a1a85b598b"
+      "0x99b137bb0dff77850c59ab13feeddde167ae74af1f0ed9a6700c77344522f77b": {
+        "name": "Chit",
+        "address": "0x4cfC1c4Fe8eD24f09159E2C53a345022A6b833c9"
+      },
+      "0x91404aa678fdebfb3065e48a0142b32dd8c0c488928c199d974691669f27eab1": {
+        "name": "SafeMath",
+        "address": "0xb390dE7d6c19163EE5014Ff87e145D9E22Ed3194"
+      }
+    }
+  },
+  "0x8781a9b8c2a31e5dff5c62fddfd92768d401db14ddc5b069e3c41d72f1712e4a": {
+    "contracts": {
+      "0x29547c723af666c296bf0563bcd1bf0c5260bff8f7597f00dc1716ffe0743229": {
+        "name": "Chit",
+        "address": "0x494748735312D87C54Ff36E9dc71f90fb800D7Df"
+      },
+      "0x91404aa678fdebfb3065e48a0142b32dd8c0c488928c199d974691669f27eab1": {
+        "name": "SafeMath",
+        "address": "0x10Aa1c9C2ad79b240Dc612cd2c0c0f5513bAfF28"
+      },
+      "0xcac282735fe5eafcacaf8daf266b4274241591941e48027a037d0b6d44f01546": {
+        "name": "Chit",
+        "address": "0xe5731c3df7a510fba6c5b2766251ce631C6B1d78"
+      },
+      "0x89d921806a6cf5aae355bcf7e3fa34ab3184c060114f8d38b92d11ef9cc6a895": {
+        "name": "SafeMath",
+        "address": "0x6427A6200Bed37FC1e512BdeA49D25Aa9089CF47"
+      },
+      "0xb5e0fdd3c93ec4e9866e34625a7e57e16a705a68a9c98912013695fd3dd27ccd": {
+        "name": "Chit",
+        "address": "0x8C74e6cCd38c8B61B874B0514577206a0b8Dab98"
+      },
+      "0xb1423c10645ac974ffff0c9dc1a4df2fd508d05f5feb298870a78b327583d2f3": {
+        "name": "SafeMath",
+        "address": "0xAACD4A4624632CbA84adCEda845dE2c1c265f832"
       }
     }
   }
