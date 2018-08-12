@@ -7,6 +7,7 @@ import DNavbar from './components/navbar';
 import ChitsList from './components/chits_list';
 import ChitDetails from './components/ChitDetails';
 import MyChitsList from './components/my_chits_list';
+import MyProfile from './components/profile';
 import Home from './components/home';
 
 
@@ -60,6 +61,7 @@ class App extends React.Component {
       <Route path="/chits" component={ChitsList}/>
       <Route path="/chitdetails/:usercode" component={ChitDetails}/>
       <Route path="/my-chits" component={MyChitsList}/>
+      <Route path="/profile" component={MyProfile}/>
      </div>
     </div>);
   }

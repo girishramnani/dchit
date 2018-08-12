@@ -22,14 +22,20 @@ export default class DNavbar extends React.Component {
                 </LinkContainer>
             </Nav>
             <Nav pullRight>
-            <NavItem eventKey={1} href="#">
+            <NavItem eventKey={3} href="#">
             Become organizer
             </NavItem>
             <LinkContainer to="/chits/2">
                     <NavItem eventKey={2} >
                         My Chits
                     </NavItem>
-                </LinkContainer>
+            </LinkContainer>
+            <LinkContainer to="/profile">
+                <NavItem eventKey={4} >
+                    My Profile
+                </NavItem>
+            </LinkContainer>
+
             </Nav>
         </Navbar.Collapse>
         </Navbar>
