@@ -78,5 +78,13 @@
         "address": "0x6c826a6A7791a5A9409ad8546D29639F197708e6"
       }
     }
+  },
+  "0xa3c565fc15c7478862d50ccd6561e3c06b24cc509bf388941c25ea985ce32cb9": {
+    "contracts": {
+      "0x1923822cfb2e48288a9c598200b39ac032b703f15486a4d2ca3759f0823afb63": {
+        "name": "Uni",
+        "address": "0x04f82aac96ff22c530e5010550dc4a0a40ff457e"
+      }
+    }
   }
 }

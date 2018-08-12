@@ -103,7 +103,6 @@ export default class ChitsList extends React.Component {
                     textModel:{
                       color:"white",
                       margin:"0 auto",
-
                     }
                 
             };

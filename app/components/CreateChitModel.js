@@ -126,9 +126,9 @@ class CreateChitModel extends React.Component {
                 </label>
                 <br />
                 <input
-                    name="numberOfmember"
+                    name="chit_value"
                     type="number"
-                    value={this.state.numberOfGuests}
+                    value={this.state.chit_value}
                     onChange={this.handleInputChange}
                  />
                 </div>

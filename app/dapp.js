@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Tabs, Tab, Navbar } from 'react-bootstrap';
 import { BrowserRouter, Route} from 'react-router-dom'
 import EmbarkJS from 'Embark/EmbarkJS';
+import Uni from 'Embark/contracts/Uni';
 import DNavbar from './components/navbar';
 import ChitsList from './components/chits_list';
 import ChitDetails from './components/ChitDetails';
@@ -11,6 +12,9 @@ import MyProfile from './components/profile';
 import Organizer from './components/organizer';
 import Home from './components/home';
 
+
+window.EmbarkJS = EmbarkJS;
+window.Uni = Uni;
 
 
 import './dapp.css';

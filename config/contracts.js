@@ -3,8 +3,9 @@ module.exports = {
   default: {
     // Blockchain node to deploy the contracts
     deployment: {
-      host: "localhost", // Host of the blockchain node
-      port: 8565, // Port of the blockchain node
+      host: "kovan.infura.io/v3/0bcd35cf7c304549bc9c24747f852dfd", // Host of the blockchain node
+      port: false,
+      protocol: "https", // Port of the blockchain node
       type: "rpc" // Type of connection (ws or rpc),
       // Accounts to use instead of the default account to populate your wallet
       /*,accounts: [
@@ -28,14 +29,16 @@ module.exports = {
     dappConnection: [
       "$WEB3",  // uses pre existing web3 object if available (e.g in Mist)
       "ws://localhost:8546",
-      "http://localhost:8565"
+      "http://localhost:8545"
     ],
     gas: "auto",
     contracts: {
-      Chit: {
-        fromIndex: 0,
-        args: ["Girish","0xb8d851486d1c953e31a44374aca11151d49b8bb3",50*10e10, 5, 2]
+      Uni: {
+        "address":"0x04f82aac96ff22c530e5010550dc4a0a40ff457e",
       },
+      Chit: {
+        "deploy": false
+      }
 
     }
   }
