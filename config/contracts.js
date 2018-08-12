@@ -34,7 +34,7 @@ module.exports = {
     contracts: {
       Chit: {
         fromIndex: 0,
-        args: ["0xb8d851486d1c953e31a44374aca11151d49b8bb3",50*10e10, 5, 2]
+        args: ["Girish","0xb8d851486d1c953e31a44374aca11151d49b8bb3",50*10e10, 5, 2]
       },
 
     }
