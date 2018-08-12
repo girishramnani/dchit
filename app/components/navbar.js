@@ -22,9 +22,11 @@ export default class DNavbar extends React.Component {
                 </LinkContainer>
             </Nav>
             <Nav pullRight>
-            <NavItem eventKey={3} href="#">
-            Become organizer
-            </NavItem>
+            <LinkContainer to="/organizer">
+                    <NavItem eventKey={5} >
+                        Become Organizer
+                    </NavItem>
+            </LinkContainer>
             <LinkContainer to="/chits/2">
                     <NavItem eventKey={2} >
                         My Chits
