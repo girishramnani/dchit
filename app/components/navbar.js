@@ -25,9 +25,11 @@ export default class DNavbar extends React.Component {
             <NavItem eventKey={1} href="#">
             Become organizer
             </NavItem>
-            <NavItem eventKey={2} href="#">
-                My fund
-            </NavItem>
+            <LinkContainer to="/my-chits">
+                    <NavItem eventKey={2} >
+                        My Chits
+                    </NavItem>
+                </LinkContainer>
             </Nav>
         </Navbar.Collapse>
         </Navbar>
