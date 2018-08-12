@@ -81,7 +81,20 @@ contract Uni {
         require(chit_registry[chit_name] == address(0),"The chit should be unique");
 
         chit_registry[chit_name] = new Chit(chit_name, msg.sender, chit_value, fee_per_cent, member_count);
+        chits.push(chit_name);
+        return chit_registry[chit_name];
+    }
 
+    function get_chit_length() public view returns (uint) {
+        return chits.length;
+    }
+
+    function get_chit_name_from_index(uint index) public view returns (string) {
+        require(index < chits.length, "Index out of bound");
+        return chits[index];
+    }
+
+    function get_chit_address(string chit_name) public view returns (address) {
         return chit_registry[chit_name];
     }
 
@@ -174,6 +187,7 @@ contract Chit {
       // if the sender is not in the chit fund
         require(is_member(msg.sender), "The sender is not a member");
         pool[msg.sender].funds_sent[current_payment_cycle()] += msg.value;
+        emit FundsReceived(chit_name, msg.sender, msg.value);
 
     }
 
@@ -233,6 +247,10 @@ contract Chit {
 
      // this method is used to release chit fund amount to one random member
     // function release_chit_fund()
+
+    function release_chit_fund() public {
+        
+    }
 
 
 
