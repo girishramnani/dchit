@@ -72,6 +72,7 @@ contract Uni {
 
     mapping(string => address) chit_registry;
     string[] chits;
+    address[] chits_address;
 
     constructor() public {
         deployer = msg.sender;
@@ -82,11 +83,16 @@ contract Uni {
 
         chit_registry[chit_name] = new Chit(chit_name, msg.sender, chit_value, fee_per_cent, member_count);
         chits.push(chit_name);
+        chits_address.push(chit_registry[chit_name]);
         return chit_registry[chit_name];
     }
 
     function get_chit_length() public view returns (uint) {
         return chits.length;
+    }
+    
+    function get_chit_addresses() public view returns (address[]) {
+        return chits_address;
     }
 
     function get_chit_name_from_index(uint index) public view returns (string) {
@@ -248,12 +254,8 @@ contract Chit {
      // this method is used to release chit fund amount to one random member
     // function release_chit_fund()
 
-    function release_chit_fund() public {
+    function release_chit_fund() public pure {
         
     }
-
-
-
-
 
 }

@@ -2,7 +2,8 @@ import React from 'react';
 import ChitsRow from './ChitRow';
 import {Button, ButtonToolbar,Input,Modal} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-export default class ChitsList extends React.Component {
+
+export default class Organizer extends React.Component {
     constructor(props, context) {
       super(props, context);
 
@@ -66,55 +67,45 @@ export default class ChitsList extends React.Component {
          <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header style={style.modelHeder}  closeButton>
               <Modal.Title style={style.textModel}>
-                    Create  new ChitFund
+                    Become Organizer
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                     <form>
+
                 <div className="form-group">
                 <label>
-              Name of chitfund
+              Name of organization
                 </label>
                 <br />
                 <input
-                    name="isGoing"
+                    name="name"
                     type="text"
                      />
                 </div>
-                <div className="input-group input-group-lg">
-                <label>
-                Number of guests:
-               </label>
-               <br />
-               <select
-                    name="numberOfmember"
-                    value={this.state.numberOfGuests}
-                    onChange={this.handleInputChange}
-                >
-                <option></option>
-                </select>
-               </div>
+
                 <br />
                 <div className="input-group input-group-lg">
                 <label>
-                Amount per member:
+                Total members
                 </label>
                 <br />
                 <input
-                    name="numberOfmember"
+                    name="member"
                     type="number"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
                  />
                 </div>
+
                 <br />
                 <div className="input-group input-group-lg">
                 <label>
-                Amount per member:
+                Example field
                 </label>
                 <br />
                 <input
-                    name="numberOfmember"
+                    name="example"
                     type="number"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
@@ -123,78 +114,21 @@ export default class ChitsList extends React.Component {
             </form> 
             </Modal.Body>
             <Modal.Footer>
+            <Button onClick={this.handleClose}>Save</Button>
               <Button onClick={this.handleClose}>Close</Button>
             </Modal.Footer>
           </Modal>
          <div className="row">
             <div className="col-xs-12 col-md-4">
-              <h2 className="section-title">ChitFund List</h2>
+              <h2 className="section-title">Become Organizer</h2>
+              <p>Become organizer today by clicking below button</p>
             </div>
-            <div className="pull-right">
-              <Button onClick={this.handleShow} style={style.buttonTable} bsStyle="primary">Create </Button>
-            </div>
-         </div>  
-        <div className="table table-responsive form-class">
-          <table className="table coin-list-table">
-            <thead>
-              <tr>
-                <th width="18%">NAME </th>
-                <th width="14.5%">Total member</th>
-                <th width="16%">Amount</th>
-                <th width="14.5%">Total Amount Get</th>
-                <th width="12.5%">Duration</th>
-                <th width="10.5%">Status</th>
-                <th width="10%">
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>  
-                 <LinkContainer to="/chitdetails/2">
-                    <div className="tbl-cap-title">Bitcoin Cash</div>
-                 </LinkContainer>
-                 </td>
-                <td>
-                  <div className="tbl-change">
-                  <i className="tbl-arrow-down"></i>21.12 %</div>
-                </td>
-                <td>
-                  <div className="tbl-price">$0.00002</div>
-                  <div className="tbl-price-2">0.0002192</div>
-                </td>
-                <td className="tbl-graph">
-                    
-                </td>
-                <td>
-                  <div className="tbl-price 24hr-up"><i className="tbl-arrow-up"></i>$0.00002</div>
-                </td>
-                <td>
-                  <div className="tbl-coin">12.29M</div>
-                </td>  
-                <td>
-                  <div className="tbl-mcap">
-                  <div style={style.buttonGroup}>
+         </div>
+         <div className="text-center">
+              <Button onClick={this.handleShow} style={style.buttonTable} bsStyle="primary">Become Organizer </Button>
+        </div>
 
-                      <Button style={style.buttonTable} bsStyle="primary">Join</Button>
-                      <Button style={style.buttonTable} bsStyle="primary">View</Button>
-                  </div>
-  
-                  </div>
-                </td>                              
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="text-center">
-          <ul className="pagination">
-            <li><a href="#" className="active">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li className="pagination-dots">...</li>
-            <li><a href="#" className="page-last">30</a></li>
-          </ul>          
-        </div>
+
      </div>
             
         )

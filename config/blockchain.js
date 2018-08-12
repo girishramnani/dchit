@@ -16,7 +16,9 @@ module.exports = {
     proxy: true, // Proxy is used to present meaningful information about transactions
     account: {
       // "address": "", // When specified, uses that address instead of the default one for the network
-      password: "config/development/password" // Password to unlock the account
+      password: "config/development/password",
+      numAccounts: 5,
+      balance:"100 Ether"
     },
     targetGasLimit: 8000000, // Target gas limit sets the artificial target gas floor for the blocks to mine
     wsRPC: true, // Enable the WS-RPC server
