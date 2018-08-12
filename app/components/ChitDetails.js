@@ -1,6 +1,7 @@
 import React from 'react';
 import ChitsRow from './ChitRow';
 import {Button, ButtonToolbar,Input,Modal} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default class ChitDetails extends React.Component {
     constructor(props, context) {
@@ -32,7 +33,7 @@ export default class ChitDetails extends React.Component {
                     },
                     buttonTable:{
                         padding:"8px 16px",
-                        fontSize: ".875em",
+                        fontSize: ".875 em",
                         fontWeight:"700",
                         backgroundColor:"#9282fc",
                         color:"#fff",
@@ -50,7 +51,7 @@ export default class ChitDetails extends React.Component {
                       color:"white",
                       fontWeight: "300",
                       textTransform: "uppercase",
-                      fontSize:"3.2rem"
+                      fontSize:"3.2 em"
                     },
                     wapper:{
                         background:"#fff",
@@ -64,8 +65,20 @@ export default class ChitDetails extends React.Component {
                     textModel:{
                       color:"white",
                       margin:"0 auto"
-                     }
-                
+                     },
+                    moduleWork:{
+                        background:"#f6f6f6",
+                        padding: "10px",
+                        margin:"10px"
+                    },
+                    bodyCard:{
+                        hegiht:"auto"
+                    },
+                    spanText:{
+                        fontSize:"12px",
+                        color:"#333"
+                    }
+
             };
         for (var i = 0; i < 3; i++) {
             // note: we add a key prop here to allow react to uniquely identify each
@@ -76,17 +89,36 @@ export default class ChitDetails extends React.Component {
         return (
         <div className="coin-list">
          <div className="row" style={style.wapper}>
-            <div className="" style={style.headerCard}>
+            <div className="" >
                 <div className="" style={style.headerCard}>
-                    <ul  class="heading-items -live">
+                    <ul  className="heading-items -live">
                         <li  className="heading-item">
                             ChitFun data work
                         </li>                    
                     </ul>    
                 </div>
-                <div className="" style={style.bodyCard}>
-                   
-                </div>    
+                
+                  <div className="row" style={style.bodyCard}> 
+                   <div style={style.moduleWork} className="col-md-3">
+                     Status:work
+                   </div>   
+                   <div style={style.moduleWork} className="col-md-3">
+                        Status:work
+                   </div>
+                   <div style={style.moduleWork} className="col-md-3">
+                            Status:work
+                   </div>
+                   <div style={style.moduleWork} className="col-md-3">
+                        Status:work
+                   </div>
+                   <div style={style.moduleWork} className="col-md-3">
+                        Status:work
+                   </div>
+                  </div> 
+                  <div className="row"> 
+
+                  </div>
+                
             </div>    
          </div>  
         
