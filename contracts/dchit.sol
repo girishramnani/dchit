@@ -65,6 +65,50 @@ library SafeMath {
 //     }
 // }
 
+contract Uni {
+
+    address deployer;
+
+
+    mapping(string => address) chit_registry;
+    string[] chits;
+    address[] chits_address;
+
+    constructor() public {
+        deployer = msg.sender;
+    }
+
+    function create_chit(string chit_name, uint chit_value, uint fee_per_cent, uint member_count) public returns (address) {
+        require(chit_registry[chit_name] == address(0),"The chit should be unique");
+
+        chit_registry[chit_name] = new Chit(chit_name, msg.sender, chit_value, fee_per_cent, member_count);
+        chits.push(chit_name);
+        chits_address.push(chit_registry[chit_name]);
+        return chit_registry[chit_name];
+    }
+
+    function get_chit_length() public view returns (uint) {
+        return chits.length;
+    }
+    
+    function get_chit_addresses() public view returns (address[]) {
+        return chits_address;
+    }
+
+    function get_chit_name_from_index(uint index) public view returns (string) {
+        require(index < chits.length, "Index out of bound");
+        return chits[index];
+    }
+
+    function get_chit_address(string chit_name) public view returns (address) {
+        return chit_registry[chit_name];
+    }
+
+    // if this function returns true then the chit name is available for use
+    function check_chit_name(string chit_name) public view  returns (bool) {
+        return chit_registry[chit_name] == address(0);
+    }
+}
 
 contract Chit {
 
@@ -72,7 +116,9 @@ contract Chit {
 
     address uni;
     uint256 chit_value;
-    string chit_description;
+    uint256 chit_per_member;
+    string public chit_description;
+    string public chit_name;
 
 
     struct Manager {
@@ -83,7 +129,9 @@ contract Chit {
     struct Member {
         address addr;
         // this is the mapping of timestamp => gwei recieved by the members;
-        mapping(uint => uint256) funds_received;
+        uint funds_received;
+
+        mapping(uint => uint256) funds_sent;
 
         // date joined the pool
         uint date_joined;
@@ -92,13 +140,11 @@ contract Chit {
     Manager internal fund_manager;
     address internal deployer;
 
-    // the number of participants
-    uint internal participant_count;
+    // the number of members
+    uint256 internal member_count;
     mapping(address => Member) internal pool;
-    address[] participants;
+    address[] members;
 
-    
-    bool internal is_active;
     bool internal is_closed;
 
     // important dates
@@ -107,45 +153,60 @@ contract Chit {
     uint internal start_date;
     uint internal close_date;
 
-
-
     // events
-    event MemberAdded(address indexed manager_address, address indexed );
-
+    event MemberAdded(string chit_name, address indexed manager_address, address indexed member_address);
+    event FundsReceived(string chit_name, address indexed member_address, uint amount);
+    event ChitCreated(string chit_name, address indexed member_address, uint member_count);
     // modifiers
 
     modifier onlyTopLevel() {
         require(msg.sender == fund_manager.addr || msg.sender == deployer, "The sender of the transaction does not have enough escalation");
         _;
     }
+    modifier onlyMember() {
+        require(is_member(msg.sender), "The sender is not a member");
+        _;
+    }
 
     modifier onlyActive() {
-        require(is_active == true && is_closed == false, "The chit is not active");
+        require((now > start_date && now < close_date) && is_closed == false, "The chit is not active");
         _;
     }
 
   // event ChitCreated(address indexed manager_address, uint256 date);
 
 
-    constructor(address _manager_address, uint256 _chit_value, uint256 _fee_per_cent, uint _participant_count) public {
+    constructor(string name, address _manager_address, uint256 _chit_value, uint256 _fee_per_cent, uint _member_count) public {
+        
         fund_manager.fee = _fee_per_cent;
         fund_manager.addr = _manager_address;
         chit_value = _chit_value;
-        participant_count = _participant_count;
+        member_count = _member_count;
         creation_date = now;
+        chit_per_member = chit_value / member_count;
+        uni = msg.sender;
+        chit_name = name;
+
     }
 
-    function () public payable {
+    function () public payable onlyActive {
       // if the sender is not in the chit fund
         require(is_member(msg.sender), "The sender is not a member");
+        pool[msg.sender].funds_sent[current_payment_cycle()] += msg.value;
+        emit FundsReceived(chit_name, msg.sender, msg.value);
 
     }
 
+   
     function start_chit_fund() public onlyTopLevel {
-        require(participants.length == participant_count, "The participant count is not complete yet");
+        require(members.length == member_count, "The member count is not complete yet");
         start_date = now;
-        close_date = start_date + (participant_count * duration);
+        close_date = start_date + (member_count * duration);
+    }
 
+    function current_payment_cycle() view public returns (uint) {
+        require(now > start_date, "The chit should have started");
+        return (now - start_date) / duration;
     }
 
     function get_uni() public view returns (address) {
@@ -160,9 +221,41 @@ contract Chit {
         return (pool[_addr].date_joined != 0);
     }
 
-    // function add_member(address _)
+    function set_description(string _description) public onlyTopLevel {
+        chit_description = _description;
+    }
+
+    function get_member_list() public view returns (address[]) {
+        return members;
+    }
+    
+    function have_all_member_payed_in_this_cycle() public view returns (bool) {
+        bool payed = true;
+        uint current_cycle = current_payment_cycle();
+        for(uint i = 0; i < members.length; i++) {
+            // check if all the members payed in the current cycle or not
+            if (pool[members[i]].funds_sent[current_cycle] != chit_per_member) {
+                payed = false;
+            } 
+        }
+
+        return payed;
+    }
+
+  
+    function add_member() public {
+        pool[msg.sender].addr = msg.sender;
+        pool[msg.sender].date_joined = now;
+        members.push(msg.sender);
+        emit MemberAdded(chit_name, fund_manager.addr, msg.sender);
+    }
 
 
+     // this method is used to release chit fund amount to one random member
+    // function release_chit_fund()
 
+    function release_chit_fund() public pure {
+        
+    }
 
 }
