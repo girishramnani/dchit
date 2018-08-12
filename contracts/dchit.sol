@@ -65,6 +65,31 @@ library SafeMath {
 //     }
 // }
 
+contract Uni {
+
+    address deployer;
+
+
+    mapping(string => address) chit_registry;
+    string[] chits;
+
+    constructor() public {
+        deployer = msg.sender;
+    }
+
+    function create_chit(string chit_name, uint chit_value, uint fee_per_cent, uint member_count) public returns (address) {
+        require(chit_registry[chit_name] == address(0),"The chit should be unique");
+
+        chit_registry[chit_name] = new Chit(chit_name, msg.sender, chit_value, fee_per_cent, member_count);
+
+        return chit_registry[chit_name];
+    }
+
+    // if this function returns true then the chit name is available for use
+    function check_chit_name(string chit_name) public view  returns (bool) {
+        return chit_registry[chit_name] == address(0);
+    }
+}
 
 contract Chit {
 
@@ -97,7 +122,7 @@ contract Chit {
     address internal deployer;
 
     // the number of members
-    uint internal member_count;
+    uint256 internal member_count;
     mapping(address => Member) internal pool;
     address[] members;
 
@@ -111,8 +136,8 @@ contract Chit {
 
     // events
     event MemberAdded(string chit_name, address indexed manager_address, address indexed member_address);
-    event FundsReceived(string chit_name, address indexed member_address, uint amount );
-
+    event FundsReceived(string chit_name, address indexed member_address, uint amount);
+    event ChitCreated(string chit_name, address indexed member_address, uint member_count);
     // modifiers
 
     modifier onlyTopLevel() {
@@ -140,6 +165,8 @@ contract Chit {
         member_count = _member_count;
         creation_date = now;
         chit_per_member = chit_value / member_count;
+        uni = msg.sender;
+        chit_name = name;
 
     }
 
@@ -150,16 +177,14 @@ contract Chit {
 
     }
 
-    // this method is used to release chit fund amount to one random member
-    // function release_chit_fund()
-
+   
     function start_chit_fund() public onlyTopLevel {
         require(members.length == member_count, "The member count is not complete yet");
         start_date = now;
         close_date = start_date + (member_count * duration);
     }
 
-    function current_payment_cycle() public returns (uint) {
+    function current_payment_cycle() view public returns (uint) {
         require(now > start_date, "The chit should have started");
         return (now - start_date) / duration;
     }
@@ -184,7 +209,7 @@ contract Chit {
         return members;
     }
     
-    function have_all_member_payed_in_this_cycle() public returns (bool) {
+    function have_all_member_payed_in_this_cycle() public view returns (bool) {
         bool payed = true;
         uint current_cycle = current_payment_cycle();
         for(uint i = 0; i < members.length; i++) {
@@ -197,7 +222,18 @@ contract Chit {
         return payed;
     }
 
-    // function add_member(address _)
+  
+    function add_member() public {
+        pool[msg.sender].addr = msg.sender;
+        pool[msg.sender].date_joined = now;
+        members.push(msg.sender);
+        emit MemberAdded(chit_name, fund_manager.addr, msg.sender);
+    }
+
+
+     // this method is used to release chit fund amount to one random member
+    // function release_chit_fund()
+
 
 
 

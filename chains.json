@@ -36,6 +36,30 @@
       "0xb1423c10645ac974ffff0c9dc1a4df2fd508d05f5feb298870a78b327583d2f3": {
         "name": "SafeMath",
         "address": "0xAACD4A4624632CbA84adCEda845dE2c1c265f832"
+      },
+      "0x47ead79793efb0585f5a52036a4fe11c050749854e12787ef15244b293f6d5f6": {
+        "name": "Chit",
+        "address": "0xfD31b5cE21e86b2B0275d87c1Bae5E43607Fc5Fe"
+      },
+      "0x307d791478ccdd77c0c2cf26383b0b93e706fdd6a6b041d4c91fe1292529392e": {
+        "name": "SafeMath",
+        "address": "0xB89D68FF60A00f867B797a9b337644E87a222bBA"
+      },
+      "0x4086f6cace507a8670dff3542df0a1bc33daef9b989035150cac4f0416bb3122": {
+        "name": "Uni",
+        "address": "0x8B9AF00A6D29E7D687610E9dDB022c496DB551dE"
+      },
+      "0x34f33d5e6e7c4321070ae8a98471599ed05d4c4f5b43552543f7000ade5834fb": {
+        "name": "Chit",
+        "address": "0x1cc93CeDF04b000Ee36Ccd02E95f167C2f3afE0A"
+      },
+      "0x82b298fd928f32bd747940566ca09947d08896f41da1e363b1e2e4bbc3ac0356": {
+        "name": "SafeMath",
+        "address": "0x5Baf4D88bC454537C51CEC7568a1E23400483abc"
+      },
+      "0x34b7b7e2b6882163a8bed6520a83b45886d02ae407d5a97d19e4787ff462b763": {
+        "name": "Uni",
+        "address": "0x321eF1b12d422F6526b9F4D0B11c27be53c80Ee8"
       }
     }
   }
