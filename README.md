@@ -8,19 +8,11 @@ To know know more about what chit funds are and how they work follow this [link]
 
 
 ```Bash
-$ npm -g install embark
-
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
+npm -g install embark
 cd dchit
-```
 npm install
-```
 embark run
+```
 
 open browser : http://localhost:8000
 
