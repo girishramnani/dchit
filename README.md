@@ -19,9 +19,9 @@ open browser : http://localhost:8000
 
 ## Author
 
-- Grish ramanani (https://github.com/girishramnani)
+- Girish ramanani (https://github.com/girishramnani)
 
 ## Contributors
 
-Sagar jethi     (https://github.com/sagarjethi)
-Jay  Modi       (https://github.com/mjrulesamrat)
+- Sagar jethi     (https://github.com/sagarjethi)
+- Jay  Modi       (https://github.com/mjrulesamrat)
